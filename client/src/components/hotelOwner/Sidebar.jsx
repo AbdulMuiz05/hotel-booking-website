@@ -1,0 +1,3 @@
+import {NavLink} from "react-router-dom";
+const links=[["Dashboard","/owner/dashboard","▦"],["Bookings","/owner/bookings","▤"],["Add Room","/owner/add-room","+"],["List Rooms","/owner/list-room","▥"],["Manage Hotel","/owner/hotel","⚙"]];
+export default function OwnerSidebar(){return <aside className="w-16 shrink-0 border-r bg-white md:w-56"><nav className="sticky top-16 pt-5">{links.map(([name,path,icon])=><NavLink key={path} to={path} className={({isActive})=>`flex items-center gap-3 px-4 py-3 text-sm font-medium ${isActive?"border-r-4 border-primary bg-blue-50 text-primary":"text-gray-600 hover:bg-gray-50"}`}><span className="w-5 text-center">{icon}</span><span className="hidden md:inline">{name}</span></NavLink>)}</nav></aside>}

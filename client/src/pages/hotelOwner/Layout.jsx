@@ -1,0 +1,2 @@
+import {useEffect} from "react";import {Outlet} from "react-router-dom";import {useAppContext} from "../../context/AppContext";import OwnerSidebar from "../../components/hotelOwner/Sidebar";
+export default function OwnerLayout(){const {isOwner,user,navigate}=useAppContext();useEffect(()=>{if(!user||!isOwner)navigate("/",{replace:true})},[user,isOwner,navigate]);return <div className="flex min-h-[calc(100vh-4rem)] bg-gray-50"><OwnerSidebar/><main className="min-w-0 flex-1 p-4 md:p-8"><Outlet/></main></div>}
