@@ -21,7 +21,12 @@ const app = express();
 await connectDB();
 await connectCloudinary();
 
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(cors({
+  origin: "https://hotel-booking-website-five-lac.vercel.app",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 // Webhooks need the RAW body for signature verification, so these routes
 // are registered BEFORE express.json() and use express.raw() themselves.
